@@ -10,7 +10,7 @@ import (
 
 func main() {
 	ch := make(chan os.Signal)
-	signal.Notify(ch, os.Kill, os.Interrupt, syscall.SIGUSR1, syscall.SIGUSR2)
+	signal.Notify(ch, os.Interrupt, syscall.SIGUSR1, syscall.SIGUSR2)
 	go func() {
 		sig := <-ch
 		fmt.Println("Receive signal: ", sig)
